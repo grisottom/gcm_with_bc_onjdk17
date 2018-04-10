@@ -20,7 +20,10 @@ import java.security.Security;
 public class GcmWithBouncyCasteleOnJDK17 {
 
     public SSLConnectionSocketFactory getSslConnectionSocketFactory() throws NoSuchAlgorithmException, NoSuchProviderException, NoSuchPaddingException, KeyManagementException, IOException {
-        Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
+        Security.removeProvider(BouncyCastleProvider.PROVIDER_NAME);
+        Security.removeProvider(BouncyCastleJsseProvider.PROVIDER_NAME);
+        Security.insertProviderAt(new BouncyCastleProvider(), 0);
+        Security.insertProviderAt(new BouncyCastleJsseProvider(), 1);
         Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding", "BC");
         System.out.println(cipher);
 
