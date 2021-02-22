@@ -35,4 +35,4 @@ crate local truststore and import the certficate
 * ```keytool -importcert -storepass changeit  -noprompt -alias cert_domain -file cert_domain.pem -storetype JKS -keystore ~/tmp/cacert.jks```
 
 
-Thank you Andrei Cristian Petcu for the original project and for sharring the knownledg on Stackoverflow.
+Thank you Andrei Cristian Petcu for the original project and for sharing the knowledge on Stackoverflow.
